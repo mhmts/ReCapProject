@@ -15,6 +15,7 @@ namespace ConsoleUI
             // Brandtest();
             // ColorTest();
         }
+
         private static void CarTest()
         {
 
@@ -23,7 +24,7 @@ namespace ConsoleUI
             Car car = new Car
             {
                
-                Id = 6,
+                Id = 7,
                 ColorId = 2,
                 BrandId = 1,
                 DailyPrice = 200,
@@ -43,7 +44,7 @@ namespace ConsoleUI
         private static void ArabaListele(CarManager carManager)
         {
             Console.WriteLine("mevcut araba listesi : ");
-            foreach (var car in carManager.GetCarDetails())
+            foreach (var car in carManager.GetCarDetails().Data)
             {
                 Console.WriteLine(car.CarName + "," + car.BrandName + "," + car.ColorName + "," + car.DailyPrice);
             }
@@ -59,7 +60,7 @@ namespace ConsoleUI
             brandManager.Add(brand);
 
             Console.WriteLine("marka listesi:");
-            foreach (var brand1 in brandManager.GetAll())
+            foreach (var brand1 in brandManager.GetAll().Data)
             {
                 Console.WriteLine(brand1.BrandName);
             }
@@ -67,7 +68,7 @@ namespace ConsoleUI
             brandManager.Update(brand);
 
             Console.WriteLine("güncel marka listesi:");
-            foreach (var brand1 in brandManager.GetAll())
+            foreach (var brand1 in brandManager.GetAll().Data)
             {
                 Console.WriteLine(brand1.BrandName);
             }
@@ -85,7 +86,7 @@ namespace ConsoleUI
             colorManager.Add(color);
 
             Console.WriteLine("renk listesi:");
-            foreach (var item in colorManager.GetAll())
+            foreach (var item in colorManager.GetAll().Data)
             {
                 Console.WriteLine(item.ColorName);
             }
@@ -93,14 +94,14 @@ namespace ConsoleUI
             colorManager.Update(color);
 
             Console.WriteLine("güncel renk listesi:");
-            foreach (var item in colorManager.GetAll())
+            foreach (var item in colorManager.GetAll().Data)
             {
                 Console.WriteLine(item.ColorName);
             }
             //  colorManager.Delete(item);
 
             Console.WriteLine("güncel renk listesi:");
-            foreach (var item in colorManager.GetAll())
+            foreach (var item in colorManager.GetAll().Data)
             {
                 Console.WriteLine(item.ColorName);
             }
