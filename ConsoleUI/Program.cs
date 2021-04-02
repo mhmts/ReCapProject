@@ -11,7 +11,16 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-               CarTest();
+            Customer customer = new Customer { CompanyName = "ABC", UserId = 1 };
+            User user = new User { FirstName = "Mehmet", LastName = "ışık", Email = "mehmet@gmail.com", Password = "123456Aa" };
+            Rental rental = new Rental { CarId = 3, CustomerId = 2, RentDate = new DateTime(2021, 04, 02), ReturnDate = new DateTime(2021, 04, 20) };
+
+
+            CustomerTest(customer);
+            UserTest(user);
+            RentalTest(rental);
+
+            //  CarTest();
             // Brandtest();
             // ColorTest();
         }
@@ -104,6 +113,36 @@ namespace ConsoleUI
             foreach (var item in colorManager.GetAll().Data)
             {
                 Console.WriteLine(item.ColorName);
+            }
+        }
+
+        private static void CustomerTest(Customer customer)
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            Console.WriteLine(customerManager.Add(customer).Message);
+            foreach (var item in customerManager.GetAll().Data)
+            {
+                Console.WriteLine(item.CompanyName);
+            }
+        }
+
+        private static void UserTest(User user)
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            Console.WriteLine(userManager.Add(user).Message);
+            foreach (var item in userManager.GetAll().Data)
+            {
+                Console.WriteLine(item.FirstName);
+            }
+        }
+
+        private static void RentalTest(Rental rental)
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            Console.WriteLine(rentalManager.Add(rental).Message);
+            foreach (var item in rentalManager.GetAll().Data)
+            {
+                Console.WriteLine(item.Id);
             }
         }
     }
