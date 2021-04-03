@@ -31,6 +31,7 @@ namespace WebAPI
         {
             services.AddControllers();
 
+
             services.AddSingleton<IBrandService, BrandManager>();
             services.AddSingleton<IBrandDal, EfBrandDal>();
 
