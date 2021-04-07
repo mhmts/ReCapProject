@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class BrandManager : IBrandService
+   public class BrandManager : IBrandService
     {
         IBrandDal _brandDal;
 
@@ -20,7 +20,7 @@ namespace Business.Concrete
         {
             _brandDal = brandDal;
         }
-        
+
         public IDataResult<List<Brand>> GetAll()
         {
             if (DateTime.Now.Hour == 11)
@@ -29,7 +29,7 @@ namespace Business.Concrete
             }
 
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
-            
+
         }
         public IResult GetByBrandId(int id)
         {
@@ -54,7 +54,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-       
-       
+
+
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Business.Abstract
 {
-   public interface IBrandService
+    public interface IBrandService
     {
         IResult  GetByBrandId(int Id);
 

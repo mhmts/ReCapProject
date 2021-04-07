@@ -20,4 +20,15 @@ namespace Business.ValidationRules.FluentValidation
           return  arg.StartsWith("A");
         }
     }
+
+    public class CarImageValidator : AbstractValidator<CarImage>
+    {
+        public CarImageValidator()
+        {
+            RuleFor(c => c.CarId).NotEmpty();
+
+        }
+
+       
+    }
 }
