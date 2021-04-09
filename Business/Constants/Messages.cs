@@ -1,6 +1,7 @@
 ﻿using Entities;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -64,5 +65,21 @@ namespace Business.Constants
         public static string CarImagesLimitExceded = "Limit aşıldığı için yeni resim eklenemiyor";
 
 
+        public static string CarNameInvalıd = "Araba ismi geçersiz en az 2 karakter olmalı";
+        public static string DailyPriceInvalıd = "Araba fiyatı 0'dan büyük olmalı";
+        public static string ProductsListed = "Arabalar listelendi";
+       
+      
+        public static string CarImagesListed = "Araç resimleri listelendi";
+        public static string CheckCarImageIsLimited = "Daha fazla araç resmi koyamazsınız";
+        public static string CarsCountOfBrandError = "Daha fazla marka ekleyemezsiniz";
+        public static string CarNameAlreadyExists = "Aynı isimde ikinci bir araba ilanı oluşturulamaz";
+        public static string AuthorizationDenied = "Yetkiniz yok";
+        public static string UserAlreadyExists = "Kullanıcı zaten mevcut";
+        public static string AccessTokenCreated = "Token üretildi";
+        public static string SuccessfulLogin = "Giriş başarılı";
+        public static string PasswordError = "Şifre hatalı";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string UserRegistered = "Kullanıcı kaydedildi";
     }
 }
