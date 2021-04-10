@@ -1,7 +1,11 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -20,7 +24,8 @@ namespace Business.Concrete
         {
             _customerDal = customerDal;
         }
-
+        [CacheAspect(duration: 10)]
+        [PerformanceAspect(5)]
         public IDataResult<List<Customer>> GetAll()
         {
             if (DateTime.Now.Hour == 11)
@@ -36,7 +41,9 @@ namespace Business.Concrete
             _customerDal.GetAll(b => b.Id == id);
             return new SuccessResult();
         }
-        [ValidationAspect(typeof(CustomerValidator))]
+        [ValidationAspect(typeof(CarValidator))]
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("ICustomerService.Get")]
         public IResult Add(Customer customer)
         {
             _customerDal.Add(customer);
@@ -54,6 +61,12 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-
+        [TransactionScopeAspect]
+        public IResult AddTransactionalTest(Customer customer)
+        {
+            _customerDal.Update(customer);
+            _customerDal.Add(customer);
+            return new SuccessResult(Messages.CustomerAdded);
+        }
     }
 }
