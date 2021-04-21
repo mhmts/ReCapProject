@@ -4,7 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "FrontEnd": {
-      "projectType": "application",
+      "projectType": "application", 
       "schematics": {
         "@schematics/angular:application": {
           "strict": true
