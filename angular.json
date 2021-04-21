@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FrontEnd": {
+    "FrontEnd": { 
       "projectType": "application", 
       "schematics": {
         "@schematics/angular:application": {
